@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.example.zongm.daggerapplication.School" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="school"
+            type="School" />
+    </data>
+
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#ccc"
+            android:onClick="@{()->school.click()}"
+            android:text="@{school.name!=null ? school.name: school.defaultname }"
+            android:visibility="@{school.isEmpty(school.name)?  View.GONE:View.VISIBLE }" />
+
+        <TextView
+            android:id="@+id/tv_sure"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:onClick="start"
+            android:text="开启第二个页面" />
+    </LinearLayout>
+</layout>
